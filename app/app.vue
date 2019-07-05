@@ -1,13 +1,16 @@
 <template>
-    <div id="app"
-        @mouseup.self="AppMouseUp"
-    >
-        <div class="move"
-            @mousedown.self="mousedown"
-            @mousemove.self="mousemove"
-            @mouseup.self="mouseup"
-            :style = "[style()]"
-        ></div>
+    <div id="app">
+        <paper class="head">
+            1
+        </paper>
+        <paper class="menu">
+        </paper>
+        <paper class="content">
+            1
+        </paper>
+        <paper class="foot">
+            1
+        </paper>
     </div>
 </template>
 
@@ -15,60 +18,46 @@
     export default {
         data(){
             return {
-                down : false,
-                start : {},
-                color : "blue",
-                move : {
-                    x : 0,
-                    y : 0
-                }
-            }
-        },
-        methods : {
-            AppMouseUp(){
-                this.down = false;
-                console.log(1);
-                
-            },
-            style(){
-                return {
-                    top : `${this.move.x}px`,
-                    left : `${this.move.y}px`
-                }
-            },
-            mousedown(e){
-                this.down = true;
-            },
-            mousemove(e){
-                if(this.down){
-                    this.move.x++;
-                    this.move.y++;
-                }
-            },
-            mouseup(){
-                this.down = false;
             }
         }
     }
 </script>
 
 <style lang="less">
-    html{
+    html,body,#app{
         height: 100%;
     }
     body{
         width: 100%;
-        height: 100%;
         margin: 0;
     }
     #app{
-        height: 100%;
-        .move{
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            border: 1px solid black;
-            box-shadow: 1px 1px 4px 1px black
+        display: grid;
+        grid-template-columns: repeat(12,1fr);
+        grid-template-rows: 10% 80% 10%;
+        grid-template-areas: 
+            "h h h h h h h h h h h h"
+            "m m c c c c c c c c c c"
+            "f f f f f f f f f f f f"
+    }
+    @media screen and (max-width: 640px){
+        #app {
+            grid-template-areas: 
+            "h h h h h h h h h h h h"
+            "c c c c c c c c c c c c"
+            "f f f f f f f f f f f f";
         }
+    }
+    .head{
+        grid-area: h;
+    }
+    .menu{
+        grid-area: m;
+    }
+    .content{
+        grid-area: c;
+    }
+    .foot{
+        grid-area: f;
     }
 </style>

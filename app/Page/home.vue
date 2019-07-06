@@ -2,7 +2,10 @@
     <div class="home">
         <paper class="head"></paper>
         <paper class="menu"></paper>
-        <paper class="content"></paper>
+        <paper class="content">
+            <common-markdown>
+            </common-markdown>
+        </paper>
         <paper class="foot"></paper>
     </div>
 </template>
@@ -23,6 +26,14 @@
             "h h h h h h h h h h h h"
             "m m c c c c c c c c c c"
             "f f f f f f f f f f f f"
+    }
+    @media screen and(max-width: 640px){
+        .home{
+            grid-template-areas: 
+            "h h h h h h h h h h h h"
+            "c c c c c c c c c c c c"
+            "f f f f f f f f f f f f"
+        }
     }
     .head,.foot,.menu,.content{
         width: 100%;

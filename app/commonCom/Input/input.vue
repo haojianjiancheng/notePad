@@ -4,13 +4,21 @@
             <span v-if="label">
                 {{ label }}
             </span>
-            <input 
-                :class="['common-input',{'active':focus},{'error':tips}]" 
-                @input="inuptHandle" 
-                v-bind="$attrs" 
-                @focus="focusHandle" 
-                @blur="blurHandle"
+            <div :class="['common-input',{'active':focus},{'error':tips}]"
+                @click="parentClickHandle"
             >
+                <input 
+                    v-focus="focus"
+                    ref="input"
+                    @input="inuptHandle" 
+                    v-bind="$attrs" 
+                    @focus="focusHandle" 
+                    @blur="blurHandle"
+                >
+                <div class="common-input-icon" @click="clean" v-show="iconshow">
+                    <i class="iconfont icon-icon_error"></i>
+                </div>
+            </div>
         </div>
         <div class="common-input-tips">
             <span v-show="tips">
@@ -52,11 +60,24 @@
             return{
                 focus : false,
                 tips : "",
+                iconshow : false,
+            }
+        },
+        directives : {
+            focus : function(el,{value}){
+                if(value){
+                    el.focus()
+                }
             }
         },
         methods : {
+            parentClickHandle(){
+                this.focus = true;
+            },
             inuptHandle(e){
-                this.$emit("input",e.target.value)
+                let value = e.target.value;
+                value.length > 1 ? this.iconshow = true : this.iconshow = false;
+                this.$emit("input",value)
             },
             focusHandle(){
                 this.focus = true;
@@ -64,7 +85,7 @@
             },
             blurHandle(e){
                 this.focus = false;
-                let result = this.validate(e.target.value);
+                this.validate(e.target.value);
             },
             validate(value){
                 let verificationResults = true;
@@ -81,6 +102,11 @@
                     }
                 }
                 return verificationResults
+            },
+            clean(){
+                this.iconshow = false;
+                this.tips = "";
+                this.$emit("input","")
             }
         }
     }
@@ -101,16 +127,35 @@
             align-items: center;
         }
         .common-input{
-            outline: none;
-            border: 1px solid lightgray;
-            -webkit-tap-highlight-color:transparent;
-            min-width: 150px;
-            min-height: 30px;
-            padding-left: 10px;
-            border-radius: 3px;
+            display: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid lightgray; 
+            width: 180px;
+            input{
+                min-width: 150px;
+                min-height: 30px;
+                padding-right: 30px;
+                outline: none;
+                border: none;
+                background-color: transparent;
+                -webkit-tap-highlight-color:transparent;
+                padding-left: 10px;
+                border-radius: 3px;
+            }
             &:hover{
                 background-color: lightblue;
             }
+        }
+        .common-input-icon{
+            position: absolute;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: red;
+            width: 30px;
         }
         .active{
             border-color: blue;

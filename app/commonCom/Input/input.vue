@@ -93,7 +93,7 @@
         flex-direction: column;
         width: 265px;
         margin: 0 auto;
-        padding-top: 10px;
+        padding: 5px 0;
         .common-input-content{
             width: 100%;
             display: flex;

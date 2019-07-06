@@ -21,7 +21,7 @@ const config = {
         compress : true,
         hot : true,
     },
-    devtool : "eval-source-map"
+    devtool : "source-map"
 }
 
 module.exports = merge(config,common)

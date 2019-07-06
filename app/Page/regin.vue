@@ -1,6 +1,6 @@
 <template>
-    <div class="regin">
-        <paper>
+    <div class="regin flex-row-center">
+        <paper class="regin-paper flex-col-center">
             <common-form :model="reginDate" ref="reginForm">
                 <common-input label="用户名：" prop="username" v-model="reginDate.username" :condition="validate.username"></common-input>
                 <common-input label="密码：" prop="password" v-model="reginDate.password" :condition="validate.password"></common-input>
@@ -8,7 +8,9 @@
                 <common-input label="手机号：" prop="phoneNumber" v-model="reginDate.phoneNumber" :condition="validate.phoneNumber"></common-input>
                 <common-input label="邮箱：" prop="email" v-model="reginDate.email" :condition="validate.email"></common-input>
             </common-form>
-            <common-button @click="reginHandle" large>注册</common-button>
+            <common-flex-box justify="center">
+                <common-button @click="reginHandle" large>注册</common-button>
+            </common-flex-box>
         </paper>
     </div>
 </template>
@@ -71,6 +73,11 @@
 
 <style lang="less">
     .regin{
-
+        height: 100%;
+        overflow: hidden;
+        .regin-paper{
+            width: 400px;
+            height: 450px;
+        }
     }
 </style>

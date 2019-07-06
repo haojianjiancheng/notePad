@@ -1,12 +1,14 @@
 <template>
-    <div class="login">
-        <paper class="login-paper">
+    <div class="login flex-row-center">
+        <paper class="login-paper flex-col-center">
             <common-form ref="loginForm" :model="formDate">
-                <common-input v-model="formDate.username" type="text" prop="username" label="用户名:" :condition="userCondition"></common-input>
-                <common-input v-model="formDate.password" type="password" prop="password" label="密码:" :condition="pswCondition"></common-input>
+                <common-input v-model="formDate.username" type="text" prop="username" label="用户名：" :condition="userCondition"></common-input>
+                <common-input v-model="formDate.password" type="password" prop="password" label="密码：" :condition="pswCondition"></common-input>
             </common-form>
-            <common-button large @click="login">登录</common-button>
-            <common-button large @click="regin">注册</common-button>
+            <common-flex-box class="login-button-group" justify="space-around">
+                <common-button large @click="login">登录</common-button>
+                <common-button large @click="regin">注册</common-button>
+            </common-flex-box>
         </paper>
     </div>
 </template>
@@ -69,11 +71,14 @@
 
 <style lang="less">
     .login{
-        display: grid;
+        height: 100%;
+        overflow: hidden;
         .login-paper{
-            margin-top: 50px;
             width: 400px;
-            height: 500px;
+            height: 300px;
+        }
+        .login-button-group{
+            width: 265px;
         }
     }
 </style>

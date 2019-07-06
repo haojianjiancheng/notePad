@@ -1,14 +1,16 @@
 import App from "./app.vue";
 import Vue from 'vue';
 import router from "./Router";
-
-import common from "./commonCom/index";
+import store from "./Store";
+import common from "./CommonCom/index";
+import "./Style/commonStyle.less";
 
 Vue.use(common);
 
 new Vue ({
     el : "#app",
     router,
+    store,
     components : { App },
     template : `<App/>`,
 })

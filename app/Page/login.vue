@@ -2,8 +2,8 @@
     <div class="login flex-row-center">
         <paper class="login-paper flex-col-center">
             <common-form ref="loginForm" :model="formDate">
-                <common-input v-model="formDate.username" type="text" prop="username" label="用户名：" :condition="userCondition"></common-input>{{formDate.username}}
-                <common-input v-model="formDate.password" type="password" prop="password" label="密码：" :condition="pswCondition"></common-input>{{formDate.password}}
+                <common-input v-model="formDate.username" type="text" prop="username" label="用户名：" :condition="userCondition" @enter="enter"></common-input>
+                <common-input v-model="formDate.password" type="password" prop="password" label="密码：" :condition="pswCondition" @enter="enter"></common-input>
             </common-form>
             <common-flex-box class="login-button-group" justify="space-around">
                 <common-button large @click="login">登录</common-button>
@@ -58,8 +58,12 @@
             }
         },
         methods : {
+            enter(){
+                this.login()
+            },
             login(){
-                let a = this.$refs.loginForm.validateAll();
+                let result = this.$refs.loginForm.validateAll();
+                console.log(result);
                 
             },
             regin(){

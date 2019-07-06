@@ -14,6 +14,7 @@
                     v-bind="$attrs" 
                     @focus="focusHandle" 
                     @blur="blurHandle"
+                    @keydown.enter="enterHandle"
                 >
                 <div class="common-input-icon" @click="clean" v-show="iconshow">
                     <i class="iconfont icon-icon_error"></i>
@@ -75,6 +76,7 @@
                 this.focus = true;
             },
             inuptHandle(e){
+                this.tips = "";
                 let value = e.target.value;
                 value.length > 1 ? this.iconshow = true : this.iconshow = false;
                 this.$emit("input",value)
@@ -107,6 +109,9 @@
                 this.iconshow = false;
                 this.tips = "";
                 this.$emit("input","")
+            },
+            enterHandle(){
+                this.$emit('enter')
             }
         }
     }

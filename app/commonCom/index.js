@@ -4,6 +4,7 @@ import form from "./Form/index.js";
 import input from "./Input/index.js";
 import flexbox from "./FlexBox/index.js";
 import markdown from "./MarkDown/index.js";
+import editor from "./Editor/index.js"
 
 const common = [
     paper,
@@ -11,7 +12,8 @@ const common = [
     form,
     input,
     flexbox,
-    markdown
+    markdown,
+    editor
 ]
 
 const install = function(Vue){

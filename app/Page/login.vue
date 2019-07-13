@@ -63,8 +63,9 @@
             },
             login(){
                 let result = this.$refs.loginForm.validateAll();
-                console.log(result);
-                
+                if(result) {
+                    this.$router.push("/home")
+                }
             },
             regin(){
                 this.$router.push("/regin")

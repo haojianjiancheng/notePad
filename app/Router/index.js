@@ -4,6 +4,9 @@ import store from "../Store";
 import login from "../Page/login.vue";
 import regin from "../Page/regin.vue";
 import home from "../Page/home.vue";
+import lostPage from "../Page/lostPage.vue";
+import writer from "../Page/homeCom/writer.vue";
+import setup from "../Page/homeCom/setup.vue";
 
 Vue.use(VueRouter);
 
@@ -22,11 +25,34 @@ const router = new VueRouter({
         {
             path : "/home",
             name : "home",
+            redirect : "/home/writer",
             component : home,
             meta : {
                 requireAuth : true
-            }
-        }
+            },
+            children : [
+                {
+                    path : "writer",
+                    name : "writer",
+                    component : writer,
+                    meta : {
+                        requireAuth : true
+                    }
+                },
+                {
+                    path : "setup",
+                    name : "setup",
+                    component : setup,
+                    meta : {
+                        requireAuth : true
+                    }
+                }
+            ]
+        },
+        {
+            path : "*",
+            component : lostPage
+        },
     ]
 })
 

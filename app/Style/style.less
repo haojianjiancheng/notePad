@@ -1,0 +1,138 @@
+//button
+.button-size(@padding-vertical; @padding-horizontal; @font-size; @line-height; @border-radius){
+    padding: @padding-vertical @padding-horizontal;
+    font-size: @font-size;
+    line-height: @line-height;
+    border-radius: @border-radius;
+}
+
+.button-variant(@color; @background-color; @border-color){
+    color: @color;
+    background-color: @background-color;
+    border-color: @border-color;
+    &:focus,
+    &.focus{
+        color: @color;
+        border-color: darken(@border-color,25%);
+        background-color: darken(@background-color,10%);
+    }
+    &:hover{
+        color: @color;
+        background-color: darken(@background-color, 10%);
+        border-color: darken(@border-color, 12%);
+    }
+    &:active,
+    &.active{
+        color: @color;
+        background-color: darken(@background-color, 17%);
+        border-color: darken(@border-color, 25%);
+    }
+}
+
+.btn{
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    .button-size(10px, 0, 16px, 19px, 2px)
+}
+.btn-default{
+    .button-variant(white, blue, red);
+}
+
+// flex
+.d-flex{
+    display: flex;
+}
+.flex-wrap{
+    flex-wrap: wrap;
+}
+.flex-nowrap{
+    flex-wrap: nowrap;
+}
+.flex-wrap-reverse{
+    flex-wrap: wrap-reverse;
+}
+.flex-fill{
+    flex-grow: 1;
+}
+.flex-grow{
+    flex-grow: 2;
+}
+
+@direction : row,row-reverse,column,column-reverse;
+@direction-len : length(@direction);
+.direction(@n,@i:1) when(@i =< @n){
+    @name : extract(@direction,@i);
+    .flex-@{name}{
+        flex-direction: @name;
+    }
+    .direction(@n,@i+1)
+}
+.direction(@direction-len);
+
+@justify : flex-start,flex-end,center,space-between,space-around;
+@justify-name : start,end,center,between,around;
+@justify-len : length(@justify);
+.justify(@n,@i:1) when(@i =<@n){
+    @name : extract(@justify-name,@i);
+    @value : extract(@justify,@i);
+    .justify-content-@{name}{
+        justify-content: @value;
+    }
+    .justify(@n,@i+1);
+}
+.justify(@justify-len);
+
+@align-items : flex-start,flex-end,center,baseline,stretch;
+@align-items-name : start,end,center,baseline,stretch;
+@align-items-len : length(@align-items);
+.align-items(@n,@i:1) when(@i =<@n){
+    @name : extract(@align-items-name,@i);
+    @value : extract(@align-items,@i);
+    .align-items-@{name}{
+        align-items: @value;
+    }
+    .align-items(@n,@i+1);
+}
+.align-items(@align-items-len);
+
+@align-content : flex-start,flex-end,center,space-between,space-around,stretch;
+@align-content-name : start,end,centent,between,around,stretch;
+@align-content-len : length(@align-content);
+.align-content(@n,@i:1) when(@i =<@n){
+    @name : extract(@align-content-name,@i);
+    @value : extract(@align-content,@i);
+    .align-content-@{name}{
+        align-content: @value;
+    }
+    .align-content(@n,@i+1);
+}
+.align-content(@align-content-len);
+
+@align-self : flex-start,flex-end,center,auto,baseline,stretch;
+@align-self-name : start,end,center,auto,baseline,stretch;
+@align-self-len : length(@align-self);
+.align-self(@n,@i:1) when(@i =<@n){
+    @name : extract(@align-self-name,@i);
+    @value : extract(@align-self,@i);
+    .align-self-@{name}{
+        align-self: @value;
+    }
+    .align-self(@n,@i+1);
+}
+.align-self(@align-self-len);
+
+.order(12);
+.order(@n,@i:1) when (@i =< @n){
+    .order-@{i}{
+        order: @i;
+    }
+    .order(@n,@i+1);
+}

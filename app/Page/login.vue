@@ -1,14 +1,14 @@
 <template>
-    <div class="login flex-row-center">
-        <paper class="login-paper flex-col-center">
+    <div class="login d-flex justify-content-center align-items-center">
+        <paper class="login-paper d-flex flex-column justify-content-center align-items-center">
             <common-form ref="loginForm" :model="formDate">
                 <common-input v-model="formDate.username" type="text" prop="username" label="用户名：" :condition="userCondition" @enter="enter"></common-input>
                 <common-input v-model="formDate.password" type="password" prop="password" label="密码：" :condition="pswCondition" @enter="enter"></common-input>
             </common-form>
-            <common-flex-box class="login-button-group" justify="space-around">
-                <common-button large @click="login">登录</common-button>
-                <common-button large @click="regin">注册</common-button>
-            </common-flex-box>
+            <div class="login-button-group  d-flex justify-content-around align-items-center">
+                <button class="btn btn-default" @click="login">登录</button>
+                <button class="btn btn-info" @click="regin">注册</button>
+            </div>
         </paper>
     </div>
 </template>

@@ -1,12 +1,15 @@
 <template>
-    <div class="writer">
+    <common-row class="writer">
         <editor></editor>
-    </div>
+    </common-row>
 </template>
 
 <script>
+    import editor from "../../componts/Editor/index.js";
     export default {
-        
+        components : {
+            editor
+        }
     }
 </script>
 

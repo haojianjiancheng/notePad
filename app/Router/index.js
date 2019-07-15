@@ -7,6 +7,7 @@ import home from "../Page/home.vue";
 import lostPage from "../Page/lostPage.vue";
 import writer from "../Page/homeCom/writer.vue";
 import setup from "../Page/homeCom/setup.vue";
+import follow from "../Page/homeCom/follow.vue";
 
 Vue.use(VueRouter);
 
@@ -43,6 +44,14 @@ const router = new VueRouter({
                     path : "setup",
                     name : "setup",
                     component : setup,
+                    meta : {
+                        requireAuth : true
+                    }
+                },
+                {
+                    path : "follow",
+                    name : "follow",
+                    component : follow,
                     meta : {
                         requireAuth : true
                     }

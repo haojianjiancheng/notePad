@@ -3,7 +3,8 @@ import Vue from 'vue';
 import router from "./Router";
 import store from "./Store";
 import common from "./CommonCom/index";
-import "./Style/commonStyle.less";
+import "./Style/Normalize.css";
+import "./Style/style.less";
 
 Vue.use(common);
 

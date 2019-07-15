@@ -1,16 +1,16 @@
 <template>
-    <ul class="setup flex-col-left-left">
-        <li class="setup-li  flex-row-left">
+    <common-row tag="ul" class="setup">
+        <li class="setup-li">
             <div class="setup-li-td">
                 <paper class="portait-setup">
                     <img :src="portaitLink" alt="头像" class="portait-setup-img">
                 </paper>
             </div>
             <div class="setup-li-td">
-                <common-button>设置头像</common-button>
+                <button class="btn btn-default">设置头像</button>
             </div>
         </li>
-        <li class="setup-li  flex-row-left">
+        <li class="setup-li">
             <div class="setup-li-td">
                 <span>
                     用户名
@@ -20,12 +20,12 @@
                 {{username}}
             </div>
         </li>
-        <li class="setup-li  flex-row-left">
+        <li class="setup-li">
              <div class="setup-li-td">
-                <common-button @click="goBack">返回</common-button>
+                <button class="btn" @click="goBack">返回</button>
             </div>
         </li>
-    </ul>
+    </common-row>
 </template>
 
 <script>
@@ -64,9 +64,6 @@
         .setup-paper{
             width: 400px;
             height: 300px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
         }
         .portait-setup{
             width: 100px;

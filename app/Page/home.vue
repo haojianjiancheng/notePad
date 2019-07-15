@@ -1,20 +1,29 @@
 <template>
     <div class="home">
-        <paper class="head">
-            <div class="head-content">
+        <paper class="head d-flex align-items-center">
+            <div class="head-content d-flex justify-content-around align-items-center">
                 <div class="head-logo">
                     NOTEPAD
                 </div>
-                <paper class="head-portrait" >
-                    <img :src="srcLink" @click="toUserSetup" alt="头像" class="head-portrait-img">
-                </paper>
-                <common-button flat @click="toWriter">写文章</common-button>
+                <common-menu :list="messageList">
+                    <span>
+                        消息
+                    </span>
+                </common-menu>
+                <common-menu :list="portraitList">
+                    <div class="head-portrait">
+                        <img :src="srcLink" alt="头像" class="head-portrait-img">
+                    </div>
+                    <i class="iconfont icon-icon-test3"></i>
+                </common-menu>
+                <button class="btn" @click="toWriter">写文章</button>
+                <router-link class="btn" tag="button" to="follow">关注</router-link>
+                
             </div>
         </paper>
-        <paper class="menu"></paper>
-        <paper class="content">
+        <common-container class="content">
             <router-view></router-view>
-        </paper>
+        </common-container>
         <paper class="foot"></paper>
     </div>
 </template>
@@ -23,16 +32,73 @@
     export default {
         data(){
             return {
-                srcLink : this.$store.state.portrait
+                srcLink : this.$store.state.portrait,
+                portraitList : [
+                    {
+                        name : "我的主页",
+                        link : "/regin",
+                        icon : "icon-user",
+                    },
+                    {
+                        name : "收藏的文章",
+                        link : "/regin",
+                        icon : "icon-icon-test4",
+                    },
+                    {
+                        name : "喜欢的文章",
+                        link : "/regin",
+                        icon : "icon-like",
+                    },
+                    {
+                        name : "帮助与反馈",
+                        link : "/regin",
+                        icon : "icon-comment",
+                    },
+                    {
+                        name : "设置",
+                        link : "setup",
+                        icon : "icon-icon-test5",
+                    },
+                    {
+                        name : "退出",
+                        link : "/regin",
+                        icon : "icon-sign_out"
+                    }
+                ],
+                messageList : [
+                    {
+                        name : "评论",
+                        link : "",
+                        icon : "icon-comment"
+                    },
+                    {
+                        name : "信息",
+                        link : "",
+                        icon : "icon-message"
+                    },
+                    {
+                        name : "喜欢和赞",
+                        link : "",
+                        icon : "icon-like"
+                    },
+                    {
+                        name : "关注",
+                        link : "",
+                        icon : "icon-icon_plus"
+                    },
+                    {
+                        name : "其他提醒",
+                        link : "",
+                        icon : "icon-ellipsis"
+                    },
+                    
+                ]
             }
         },
         methods : {
             blod(){
                 console.log(1);
                 
-            },
-            toUserSetup(){
-                this.$router.push("setup")
             },
             toWriter(){
                 this.$router.push("writer")
@@ -44,28 +110,19 @@
 <style lang="less">
     .home{
         height: 100%;
-        display: grid;
-        grid-template-columns: repeat(12,1fr);
-        grid-template-rows: 14% 72% 14%;
-        grid-template-areas: 
-            "h h h h h h h h h h h h"
-            "m m c c c c c c c c c c"
-            "f f f f f f f f f f f f"
     }
-    .head,.foot,.menu,.content{
+    .head,.foot,.content{
         width: 100%;
         margin: 0;
     }
     .head{
-        grid-area: h;
-        display: flex;
-        align-items: center;
         .head-content{
-            width: 300px;
+            width: 100%;
             height: 50px;
-            margin-left: 20px;
-            display: flex;
-            justify-content: space-between;
+            position: fixed;
+            background-color: #f1f1f1;
+            top: 0;
+            z-index: 10002;
         }
         .head-logo{
             width: 150px;
@@ -77,40 +134,21 @@
             font-weight: 600;
         }
         .head-portrait{
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             overflow: hidden;
-            cursor: pointer;
-            &:hover{
-                transform: scale(1.1,1.1)
-            }
         }
         .head-portrait-img{
-            height: 50px;
+            height: 40px;
         }
     }
-    .menu{
-        grid-area: m;
-        padding: 0;
-    }
     .content{
-        grid-area: c;
+        margin-top: 50px;
         padding: 0;
         overflow: auto;
     }
     .foot{
-        grid-area: f;
-    }
-    @media screen and(max-width: 640px){
-        .home{
-            grid-template-areas: 
-            "h h h h h h h h h h h h"
-            "c c c c c c c c c c c c"
-            "f f f f f f f f f f f f"
-        }
-        .head > .head-content{
-            margin-left: 0;
-        }
+
     }
 </style>

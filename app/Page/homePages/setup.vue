@@ -42,6 +42,7 @@
 
 <style lang="less">
 .setup{
+    margin-top: 50px;
     .setup-left,.setup-right{
         margin-top: 10px;
     }

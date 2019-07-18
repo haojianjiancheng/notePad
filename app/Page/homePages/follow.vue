@@ -41,6 +41,7 @@
 
 <style lang="less">
     .follow{
+        margin-top: 50px;
         .follow-left{
             flex: none;
         }

@@ -1,54 +1,51 @@
 <template>
     <div class="home">
-        <paper class="head d-flex align-items-center">
-            <div class="head-content d-flex justify-content-between">
-                <div class="head-button-group-left d-flex">
-                    <div class="head-logo">
-                        NOTEPAD
-                    </div>
-
-                    <router-link class="rest-a" to="find">
-                        <span class="icon-show">
-                            <i class="iconfont icon-icon-test6"></i>
-                        </span>
-                        <span class="title-show">
-                            发现
-                        </span>
-                    </router-link>
-                    <router-link class="rest-a" to="follow">
-                        <span class="icon-show">
-                            <i class="iconfont icon-icon-test6"></i>
-                        </span>
-                        <span class="title-show">
-                            关注
-                        </span>
-                    </router-link>
-                    <common-menu :list="messageList">
-                        <span class="icon-show">
-                            <i class="iconfont icon-icon-test6"></i>
-                        </span>
-                        <span class="title-show">
-                            消息
-                        </span>
-                    </common-menu>
+        <div class="head d-flex justify-content-between align-items-center">
+            <div class="head-button-group-left d-flex">
+                <div class="head-logo">
+                    NOTEPAD
                 </div>
-               
-                <div class="head-button-group-right d-flex justify-content-around">
-                    <common-menu :list="portraitList">
-                        <div class="head-portrait">
-                            <img :src="srcLink" alt="头像" class="head-portrait-img">
-                        </div>
-                        <i class="iconfont icon-icon-test3"></i>
-                    </common-menu>
 
-                    <button class="btn" @click="toWriter">写文章</button>
-                </div>
-                
+                <router-link class="rest-a" to="find">
+                    <span class="icon-show">
+                        <i class="iconfont icon-icon-test6"></i>
+                    </span>
+                    <span class="title-show">
+                        发现
+                    </span>
+                </router-link>
+                <router-link class="rest-a" to="follow">
+                    <span class="icon-show">
+                        <i class="iconfont icon-icon-test6"></i>
+                    </span>
+                    <span class="title-show">
+                        关注
+                    </span>
+                </router-link>
+                <common-menu :list="messageList">
+                    <span class="icon-show">
+                        <i class="iconfont icon-icon-test6"></i>
+                    </span>
+                    <span class="title-show">
+                        消息
+                    </span>
+                </common-menu>
             </div>
-        </paper>
-        <div class="content">
-            <router-view></router-view>
+            
+            <div class="head-button-group-right d-flex justify-content-around">
+                <common-menu :list="portraitList">
+                    <div class="head-portrait">
+                        <img :src="srcLink" alt="头像" class="head-portrait-img">
+                    </div>
+                    <i class="iconfont icon-icon-test3"></i>
+                </common-menu>
+
+                <button class="btn" @click="toWriter">写文章</button>
+            </div>
         </div>
+        
+        <router-view></router-view>
+
         <paper class="foot"></paper>
     </div>
 </template>
@@ -133,70 +130,67 @@
 </script>
 
 <style lang="less">
-        @media screen and (min-width: 901px){
-            .title-show{
-                display: inline;
-            }
-            .icon-show{
-                display: none;
-            }
+    @media screen and (min-width: 901px){
+        .title-show{
+            display: inline;
         }
-        @media screen and (min-width: 680px) and (max-width: 900px) {
-            .title-show{
-                display: none;
-            }
-            .icon-show{
-                display: inline;
-            }
+        .icon-show{
+            display: none;
         }
+    }
+    @media screen and (min-width: 680px) and (max-width: 900px) {
+        .title-show{
+            display: none;
+        }
+        .icon-show{
+            display: inline;
+        }
+    }
        
     .home{
-        height: 100%;
-    }
-    .head,.foot,.content{
-        width: 100%;
-        margin: 0;
-    }
-    .head{
-        .head-content{
+        overflow: hidden;
+        .head,.foot,.content{
             width: 100%;
+            margin: 0;
+        }
+        .head{
             position: fixed;
             background-color: #f1f1f1;
             top: 0;
             z-index: 10002;
+            .head-logo{
+                width: 150px;
+                height: 50px;
+                text-align: center;
+                line-height: 50px;
+                font-size: 30px;
+                font-family: 'Courier New', Courier, monospace;
+                font-weight: 600;
+                user-select: none;
+            }
+            .head-button-group-left{
+
+            }
+            .head-button-group-right{
+                width: 200px;
+            }
+            .head-portrait{
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                overflow: hidden;
+            }
+            .head-portrait-img{
+                height: 40px;
+            }
         }
-        .head-logo{
-            width: 150px;
-            height: 50px;
-            text-align: center;
-            line-height: 50px;
-            font-size: 30px;
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: 600;
-            user-select: none;
+        .content{
+            margin-top: 50px;
+            padding: 0;
+            overflow: auto;
         }
-        .head-button-group-left{
+        .foot{
 
         }
-        .head-button-group-right{
-            width: 200px;
-        }
-        .head-portrait{
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            overflow: hidden;
-        }
-        .head-portrait-img{
-            height: 40px;
-        }
-    }
-    .content{
-        margin-top: 50px;
-        padding: 0;
-        overflow: auto;
-    }
-    .foot{
-
     }
 </style>

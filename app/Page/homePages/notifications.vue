@@ -47,10 +47,11 @@
 
 <style lang="less">
 .notifications{
+    margin-top: 50px;
     .notifications-left,.notifications-right{
-        margin-top: 10px;
     }
     .notifications-left{
+        width: 300px;
     }
 }
 </style>

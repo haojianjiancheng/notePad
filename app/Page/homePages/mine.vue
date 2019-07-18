@@ -32,5 +32,7 @@
 </script>
 
 <style lang="less">
-
+    .mine{
+        margin-top: 50px;
+    }
 </style>

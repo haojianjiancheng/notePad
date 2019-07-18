@@ -14,5 +14,7 @@
 </script>
 
 <style lang="less">
-
+    .writer{
+        margin-top: 50px;
+    }
 </style>

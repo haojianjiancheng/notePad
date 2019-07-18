@@ -85,6 +85,7 @@
 
 <style lang="less">
     .bookmarks-list{
+        margin: auto;
         list-style: none;
         width: 750px;
         background-color: #fff;

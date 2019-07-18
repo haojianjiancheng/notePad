@@ -1,7 +1,7 @@
 <template>
-    <common-row class="bookmarks d-flex justify-content-center">
+    <ul class="bookmarks">
         <list v-for="(item,index) in bookmarkList" :key="`bookmarks${index}`" :message="item"></list>
-    </common-row>
+    </ul>
 </template>
 
 <script>
@@ -27,6 +27,6 @@
 
 <style lang="less">
     .bookmarks{
-
+       padding-left: 0;
     }
 </style>

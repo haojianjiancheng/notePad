@@ -46,9 +46,9 @@
                 
             </div>
         </paper>
-        <common-container class="content">
+        <div class="content">
             <router-view></router-view>
-        </common-container>
+        </div>
         <paper class="foot"></paper>
     </div>
 </template>

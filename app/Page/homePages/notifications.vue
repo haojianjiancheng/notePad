@@ -1,12 +1,12 @@
 <template>
-    <common-row class="notifications">
-        <common-col class="notifications-left" md="3" lg="3" xl="3" sm="3">
+    <div class="notifications">
+        <div class="notifications-left">
             <common-column-button :list="button"></common-column-button>
-        </common-col>
-        <common-col class="notifications-right" md="9" lg="9" xl="9" sm="9">
+        </div>
+        <div class="notifications-right">
             444
-        </common-col>
-    </common-row>
+        </div>
+    </div>
 </template>
 
 <script>

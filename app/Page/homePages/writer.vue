@@ -1,7 +1,7 @@
 <template>
-    <common-row class="writer">
+    <div class="writer">
         <editor></editor>
-    </common-row>
+    </div>
 </template>
 
 <script>

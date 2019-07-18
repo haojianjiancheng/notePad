@@ -1,10 +1,10 @@
 <template>
-    <common-row class="mine">
+    <div class="mine">
         <common-tabs :list="list" @tabsClick="tabsClick" :value.sync="tabsActive"></common-tabs>
         <div class="mine-1" v-if="tabsActive === 0">
             
         </div>
-    </common-row>
+    </div>
 </template>
 
 <script>

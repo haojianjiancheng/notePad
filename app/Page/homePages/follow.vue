@@ -1,20 +1,28 @@
 <template>
-    <common-row tag="ul" class="follow">
-        <list v-for="(item,index) in mesArray" :key="`mesArr${index}`" :author="author" :message="item"></list>
-    </common-row>
+    <div class="follow d-flex">
+        <ul class="follow-left">
+            <list v-for="(item,index) in mesArray" :key="`mesArr${index}`" :author="author" :message="item"></list>
+        </ul>
+        <div class="follow-right">
+            <recommend :list="recommendArray"></recommend>
+        </div>
+    </div>
 </template>
 
 <script>
-    import list from "../../componts/messageList.vue"
+    import list from "../../componts/messageList.vue";
+    import recommend from "../../componts/recommend.vue";
     export default {
         components : {
-            list
+            list,
+            recommend
         },
         beforeCreate(){
             this.axios.get("follow").then((data)=>{
-                console.log(data.data.mesArray);
-                this.mesArray = data.data.mesArray;
-               
+                this.mesArray = data.data.mesArray;             
+            });
+            this.axios.get("recommend").then(data=>{
+                this.recommendArray = data.data.recommend;
             })
         },
         data(){
@@ -24,7 +32,8 @@
                     img : this.$store.state.portrait,
                     link : "/"
                 },
-                mesArray : null,
+                mesArray : {},
+                recommendArray : [],
             }
         }
     }
@@ -32,6 +41,11 @@
 
 <style lang="less">
     .follow{
-        padding-left: 0;
+        .follow-left{
+            flex: none;
+        }
+        .follow-right{
+            margin: 16px auto;
+        }
     }
 </style>

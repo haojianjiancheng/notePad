@@ -1,12 +1,12 @@
 <template>
-    <common-row class="setup">
-        <common-col class="setup-left" md="3" lg="3" xl="3" sm="3">
+    <div class="setup">
+        <div class="setup-right">
             <common-column-button :list="button"></common-column-button>
-        </common-col>
-        <common-col class="setup-right" md="9" lg="9" xl="9" sm="9">
+        </div>
+        <div>
             444
-        </common-col>
-    </common-row>
+        </div>
+    </div>
 </template>
 
 <script>

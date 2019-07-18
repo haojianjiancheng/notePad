@@ -1,13 +1,17 @@
 import VueRouter from "vue-router";
 import Vue from "vue";
 import store from "../Store";
+import lostPage from "../Page/lostPage.vue";
 import login from "../Page/login.vue";
 import regin from "../Page/regin.vue";
+
 import home from "../Page/home.vue";
-import lostPage from "../Page/lostPage.vue";
-import writer from "../Page/homeCom/writer.vue";
-import setup from "../Page/homeCom/setup.vue";
-import follow from "../Page/homeCom/follow.vue";
+import writer from "../Page/homePages/writer.vue";
+import setup from "../Page/homePages/setup.vue";
+import follow from "../Page/homePages/follow.vue";
+import notifications from "../Page/homePages/notifications.vue";
+import bookmarks from "../Page/homePages/bookmarks.vue";
+import mine from "../Page/homePages/mine.vue";
 
 Vue.use(VueRouter);
 
@@ -52,6 +56,30 @@ const router = new VueRouter({
                     path : "follow",
                     name : "follow",
                     component : follow,
+                    meta : {
+                        requireAuth : true
+                    }
+                },
+                {
+                    path : "notifications",
+                    name : "notifications",
+                    component : notifications,
+                    meta : {
+                        requireAuth : true
+                    }
+                },
+                {
+                    path : "bookmarks",
+                    name : "bookmarks",
+                    component : bookmarks,
+                    meta : {
+                        requireAuth : true
+                    }
+                },
+                {
+                    path : "mine",
+                    name : "mine",
+                    component : mine,
                     meta : {
                         requireAuth : true
                     }

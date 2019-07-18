@@ -1,23 +1,48 @@
 <template>
     <div class="home">
         <paper class="head d-flex align-items-center">
-            <div class="head-content d-flex justify-content-around align-items-center">
-                <div class="head-logo">
-                    NOTEPAD
-                </div>
-                <common-menu :list="messageList">
-                    <span>
-                        消息
-                    </span>
-                </common-menu>
-                <common-menu :list="portraitList">
-                    <div class="head-portrait">
-                        <img :src="srcLink" alt="头像" class="head-portrait-img">
+            <div class="head-content d-flex justify-content-between">
+                <div class="head-button-group-left d-flex">
+                    <div class="head-logo">
+                        NOTEPAD
                     </div>
-                    <i class="iconfont icon-icon-test3"></i>
-                </common-menu>
-                <button class="btn" @click="toWriter">写文章</button>
-                <router-link class="btn" tag="button" to="follow">关注</router-link>
+
+                    <router-link class="rest-a" to="find">
+                        <span class="icon-show">
+                            <i class="iconfont icon-icon-test6"></i>
+                        </span>
+                        <span class="title-show">
+                            发现
+                        </span>
+                    </router-link>
+                    <router-link class="rest-a" to="follow">
+                        <span class="icon-show">
+                            <i class="iconfont icon-icon-test6"></i>
+                        </span>
+                        <span class="title-show">
+                            关注
+                        </span>
+                    </router-link>
+                    <common-menu :list="messageList">
+                        <span class="icon-show">
+                            <i class="iconfont icon-icon-test6"></i>
+                        </span>
+                        <span class="title-show">
+                            消息
+                        </span>
+                    </common-menu>
+                </div>
+               
+                <div class="head-button-group-right d-flex justify-content-around">
+                    <common-menu :list="portraitList">
+                        <div class="head-portrait">
+                            <img :src="srcLink" alt="头像" class="head-portrait-img">
+                        </div>
+                        <i class="iconfont icon-icon-test3"></i>
+                    </common-menu>
+
+                    <button class="btn" @click="toWriter">写文章</button>
+                </div>
                 
             </div>
         </paper>
@@ -36,12 +61,12 @@
                 portraitList : [
                     {
                         name : "我的主页",
-                        link : "/regin",
+                        link : "mine",
                         icon : "icon-user",
                     },
                     {
                         name : "收藏的文章",
-                        link : "/regin",
+                        link : "bookmarks",
                         icon : "icon-icon-test4",
                     },
                     {
@@ -68,27 +93,27 @@
                 messageList : [
                     {
                         name : "评论",
-                        link : "",
+                        link : "notifications",
                         icon : "icon-comment"
                     },
                     {
                         name : "信息",
-                        link : "",
+                        link : "notifications",
                         icon : "icon-message"
                     },
                     {
                         name : "喜欢和赞",
-                        link : "",
+                        link : "notifications",
                         icon : "icon-like"
                     },
                     {
                         name : "关注",
-                        link : "",
+                        link : "notifications",
                         icon : "icon-icon_plus"
                     },
                     {
                         name : "其他提醒",
-                        link : "",
+                        link : "notifications",
                         icon : "icon-ellipsis"
                     },
                     
@@ -108,6 +133,23 @@
 </script>
 
 <style lang="less">
+        @media screen and (min-width: 901px){
+            .title-show{
+                display: inline;
+            }
+            .icon-show{
+                display: none;
+            }
+        }
+        @media screen and (min-width: 680px) and (max-width: 900px) {
+            .title-show{
+                display: none;
+            }
+            .icon-show{
+                display: inline;
+            }
+        }
+       
     .home{
         height: 100%;
     }
@@ -118,7 +160,6 @@
     .head{
         .head-content{
             width: 100%;
-            height: 50px;
             position: fixed;
             background-color: #f1f1f1;
             top: 0;
@@ -132,6 +173,13 @@
             font-size: 30px;
             font-family: 'Courier New', Courier, monospace;
             font-weight: 600;
+            user-select: none;
+        }
+        .head-button-group-left{
+
+        }
+        .head-button-group-right{
+            width: 200px;
         }
         .head-portrait{
             width: 40px;

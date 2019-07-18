@@ -50,6 +50,7 @@
             justify-content: space-around;
             align-items: center;
             cursor: pointer;
+            user-select: none;
         }
         .common-menu-list{
             position: absolute;
@@ -67,6 +68,7 @@
                 border-bottom: 1px solid lightgray;
                 list-style: none;
                 cursor: pointer;
+                user-select: none;
                 &:hover{
                     background-color: #f1f1f1;
                 }

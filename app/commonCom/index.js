@@ -3,7 +3,10 @@ import form from "./Form/index.js";
 import input from "./Input/index.js";
 import flexbox from "./FlexBox/index.js";
 import menu from "./Menu/index.js";
-import grid from "./Grid/index.js"
+import grid from "./Grid/index.js";
+import floatButton from "./FloatButton/index.js";
+import columnButton from "./ColumnButton/index.js";
+import tabs from "./Tabs/index.js";
 
 const common = {  
     paper,
@@ -11,7 +14,10 @@ const common = {
     input,
     flexbox,
     menu,
-    grid
+    grid,
+    floatButton,
+    columnButton,
+    tabs
 }
 
 const install = function(Vue){

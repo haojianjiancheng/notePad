@@ -20,11 +20,11 @@
                 <span>
                     {{message.author}}
                 </span>
-                <router-link :to="message.url">
+                <router-link :to="message.url" class="bookmarks-a">
                     <i class="iconfont icon-icon_eye"></i>
                         {{message.reader}}
                 </router-link>
-                <router-link :to="message.url">
+                <router-link :to="message.url" class="bookmarks-a">
                     <i class="iconfont icon-comment"></i>
                         {{message.comment}}
                 </router-link>
@@ -33,9 +33,9 @@
                         {{message.like}}
                 </span>
                 <span v-show="show">
-                    <router-link :to="message.outline">
+                    <a @click="clickHandle()" class="bookmarks-a">
                         取消收藏
-                    </router-link>
+                    </a>
                 </span>
                 
             </p>
@@ -78,6 +78,9 @@
             },
             mouseoutHandle(){
                 this.show = false;
+            },
+            clickHandle(){
+                this.$emit('cancelCollection')
             }
         }
     }
@@ -86,7 +89,6 @@
 <style lang="less">
     .bookmarks-list{
         margin: auto;
-        list-style: none;
         width: 750px;
         background-color: #fff;
         border-bottom: 1px solid lightgray;
@@ -115,12 +117,14 @@
             max-height: 60px;
         }
         .meta{
-            a{
-                color: black;
-                text-decoration: none;
-            }
             span:not(:first-child),a{
                 margin-left: 10px;
+            }
+            .bookmarks-a{
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+                user-select: none;
             }
         }
     }

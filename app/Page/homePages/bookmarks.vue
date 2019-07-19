@@ -1,11 +1,17 @@
 <template>
-    <ul class="bookmarks">
-        <list v-for="(item,index) in bookmarkList" :key="`bookmarks${index}`" :message="item"></list>
-    </ul>
+    <transition-group name="bookmarks-transition" class="bookmarks" tag="ul" mode="in-out">
+        <list 
+            v-for="(item,index) in bookmarkList" 
+            :key="item.cid" 
+            :message="item" 
+            @cancelCollection="clickHandle(index)"
+            class="bookmarks-transition-item"
+        ></list>
+    </transition-group>
 </template>
 
 <script>
-    import list from "../../componts/bookmarksList.vue"
+    import list from "../../components/bookmarksList.vue"
     export default {
         beforeCreate(){
             this.axios.get("bookmarks").then((data)=>{
@@ -21,13 +27,31 @@
             return{
                 bookmarkList : null
             }
+        },
+        methods : {
+            clickHandle(index){
+                this.axios.post("cancelCollection").then(data=>{
+                    data.data.cancel && this.bookmarkList.splice(index,1)
+                }).catch((err)=>{
+                    return;
+                })
+            }
         }
     }
 </script>
 
 <style lang="less">
     .bookmarks{
-       padding-left: 0;
-       margin-top: 50px;
+        margin-top: 50px;
+        .bookmarks-transition-item{
+            transition: all .3s;
+        }
+        .bookmarks-transition-leave-to{
+            opacity: 0;
+            transform: translateX(80px);
+        }
+        .bookmarks-transition-leave-active{
+            position: absolute
+        }
     }
 </style>

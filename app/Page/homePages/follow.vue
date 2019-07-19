@@ -1,17 +1,17 @@
 <template>
-    <div class="follow d-flex">
+    <common-container class="follow d-flex justify-content-between">
         <ul class="follow-left">
             <list v-for="(item,index) in mesArray" :key="`mesArr${index}`" :author="author" :message="item"></list>
         </ul>
         <div class="follow-right">
             <recommend :list="recommendArray"></recommend>
         </div>
-    </div>
+    </common-container>
 </template>
 
 <script>
-    import list from "../../componts/messageList.vue";
-    import recommend from "../../componts/recommend.vue";
+    import list from "../../components/messageList.vue";
+    import recommend from "../../components/recommend.vue";
     export default {
         components : {
             list,
@@ -43,10 +43,10 @@
     .follow{
         margin-top: 50px;
         .follow-left{
-            flex: none;
         }
         .follow-right{
-            margin: 16px auto;
+            padding-left: 10px;
+            margin-top: 20px;
         }
     }
 </style>

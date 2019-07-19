@@ -43,7 +43,6 @@
             background-color: #fff;
             user-select: none;
             cursor: pointer;
-            
         }
         .common-tab-active{
             background-color: #f1f1f1;

@@ -39,10 +39,8 @@
 
 <style lang="less">
     .recommend{
-        padding-left: 0;
         background-color: #fff;
         .recommend-li{
-            list-style: none;
             width: 260px;
             height: 45px;
             margin-bottom: 10px;

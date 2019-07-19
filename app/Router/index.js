@@ -84,7 +84,7 @@ const router = new VueRouter({
                         requireAuth : true
                     }
                 }
-            ]
+            ] 
         },
         {
             path : "*",
@@ -109,6 +109,7 @@ router.beforeEach((to,from,next)=>{
             return
         }
     }
+    next()
 })
 
 export default router

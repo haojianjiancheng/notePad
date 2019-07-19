@@ -76,7 +76,6 @@
 
 <style lang="less">
     .message-list{
-        list-style: none;
         width: 750px;
         background-color: #fff;
         border-bottom: 1px solid lightgray;

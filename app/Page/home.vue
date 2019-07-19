@@ -6,7 +6,7 @@
                     NOTEPAD
                 </div>
 
-                <router-link class="rest-a" to="find">
+                <router-link class="rest-a" to="/home/find">
                     <span class="icon-show">
                         <i class="iconfont icon-icon-test6"></i>
                     </span>
@@ -14,7 +14,7 @@
                         发现
                     </span>
                 </router-link>
-                <router-link class="rest-a" to="follow">
+                <router-link class="rest-a" to="/home/follow">
                     <span class="icon-show">
                         <i class="iconfont icon-icon-test6"></i>
                     </span>
@@ -35,7 +35,7 @@
             <div class="head-button-group-right d-flex justify-content-around">
                 <common-menu :list="portraitList">
                     <div class="head-portrait">
-                        <img :src="srcLink" alt="头像" class="head-portrait-img">
+                        <img :src="portraitLink" alt="头像" class="head-portrait-img">
                     </div>
                     <i class="iconfont icon-icon-test3"></i>
                 </common-menu>
@@ -54,16 +54,16 @@
     export default {
         data(){
             return {
-                srcLink : this.$store.state.portrait,
+                portraitLink : this.$store.state.portrait,
                 portraitList : [
                     {
                         name : "我的主页",
-                        link : "mine",
+                        link : "/home/mine",
                         icon : "icon-user",
                     },
                     {
                         name : "收藏的文章",
-                        link : "bookmarks",
+                        link : "/home/bookmarks",
                         icon : "icon-icon-test4",
                     },
                     {
@@ -78,7 +78,7 @@
                     },
                     {
                         name : "设置",
-                        link : "setup",
+                        link : "/home/setup",
                         icon : "icon-icon-test5",
                     },
                     {
@@ -95,22 +95,22 @@
                     },
                     {
                         name : "信息",
-                        link : "notifications",
+                        link : "/home/notifications",
                         icon : "icon-message"
                     },
                     {
                         name : "喜欢和赞",
-                        link : "notifications",
+                        link : "/home/notifications",
                         icon : "icon-like"
                     },
                     {
                         name : "关注",
-                        link : "notifications",
+                        link : "/home/notifications",
                         icon : "icon-icon_plus"
                     },
                     {
                         name : "其他提醒",
-                        link : "notifications",
+                        link : "/home/notifications",
                         icon : "icon-ellipsis"
                     },
                     
@@ -123,7 +123,7 @@
                 
             },
             toWriter(){
-                this.$router.push("writer")
+                this.$router.push("/home/writer")
             }
         }
     }

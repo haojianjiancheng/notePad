@@ -1,5 +1,5 @@
 <template>
-    <transition-group name="bookmarks-transition" class="bookmarks" tag="ul" mode="in-out">
+    <transition-group name="bookmarks-transition" class="bookmarks mt" tag="ul" mode="in-out">
         <list 
             v-for="(item,index) in bookmarkList" 
             :key="item.cid" 
@@ -42,7 +42,6 @@
 
 <style lang="less">
     .bookmarks{
-        margin-top: 50px;
         .bookmarks-transition-item{
             transition: all .3s;
         }

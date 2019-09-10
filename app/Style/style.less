@@ -1,9 +1,12 @@
+.mt{
+    margin-top: 50px;
+}
 //a
 .rest-a{
     color: black;
     text-decoration: none;
     height: 50px;
-    width: 60px;
+    width: 80px;
     text-align: center;
     line-height: 50px;
     user-select: none;
@@ -62,10 +65,10 @@ li{
     cursor: pointer;
     background-image: none;
     border: 1px solid transparent;
-    .button-size(10px, 0, 16px, 19px, 2px)
+    .button-size(10px, 20px, 16px, 16px, 4px)
 }
 .btn-default{
-    .button-variant(white, blue, red);
+    .button-variant(white, blue, lightBlue);
 }
 
 // flex
@@ -126,7 +129,7 @@ li{
 .align-items(@align-items-len);
 
 @align-content : flex-start,flex-end,center,space-between,space-around,stretch;
-@align-content-name : start,end,centent,between,around,stretch;
+@align-content-name : start,end,center,between,around,stretch;
 @align-content-len : length(@align-content);
 .align-content(@n,@i:1) when(@i =<@n){
     @name : extract(@align-content-name,@i);

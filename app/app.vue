@@ -23,5 +23,6 @@
     }
     #app{
         font-family: -apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
+        overflow-y: scroll;
     }
 </style>

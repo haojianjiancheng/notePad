@@ -12,6 +12,7 @@ import follow from "../Page/homePages/follow.vue";
 import notifications from "../Page/homePages/notifications.vue";
 import bookmarks from "../Page/homePages/bookmarks.vue";
 import mine from "../Page/homePages/mine.vue";
+import find from "../Page/homePages/find.vue";
 
 Vue.use(VueRouter);
 
@@ -19,6 +20,10 @@ const router = new VueRouter({
     routes : [
         {
             path : "/",
+            redirect : "/home/find"
+        },
+        {
+            path : "/login",
             name : "login",
             component : login
         },
@@ -30,12 +35,17 @@ const router = new VueRouter({
         {
             path : "/home",
             name : "home",
-            redirect : "/home/writer",
+            redirect : "/home/find",
             component : home,
             meta : {
                 requireAuth : true
             },
             children : [
+                {
+                    path : "find",
+                    name : "find",
+                    component : find,
+                },
                 {
                     path : "writer",
                     name : "writer",

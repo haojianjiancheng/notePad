@@ -1,5 +1,5 @@
 <template>
-    <div class="setup">
+    <div class="setup mt">
         <div class="setup-right">
             <common-column-button :list="button"></common-column-button>
         </div>
@@ -42,7 +42,6 @@
 
 <style lang="less">
 .setup{
-    margin-top: 50px;
     .setup-left,.setup-right{
         margin-top: 10px;
     }

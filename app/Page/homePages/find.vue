@@ -1,9 +1,7 @@
 <template>
-    <div>
-        <h1>
-            找不到您要的页面！
-        </h1>
-    </div>
+    <common-container class="find mt">
+       333
+    </common-container>
 </template>
 
 <script>
@@ -13,5 +11,7 @@
 </script>
 
 <style lang="less">
-
+    .find{
+        
+    }
 </style>

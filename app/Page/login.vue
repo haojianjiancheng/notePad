@@ -14,6 +14,7 @@
 </template>
 
 <script>
+    import sha256 from "js-sha256";
     export default {
         data() {
             return {
@@ -61,9 +62,13 @@
             enter(){
                 this.login()
             },
+            crypto(){
+                return sha256(this.formDate.username);
+            },
             login(){
                 let result = this.$refs.loginForm.validateAll();
                 if(result) {
+                    console.log(this.crypto())
                     this.$router.push("/home")
                 }
             },

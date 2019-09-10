@@ -1,5 +1,5 @@
 <template>
-    <common-container class="follow d-flex justify-content-between">
+    <common-container class="follow mt d-flex justify-content-between">
         <ul class="follow-left">
             <list v-for="(item,index) in mesArray" :key="`mesArr${index}`" :author="author" :message="item"></list>
         </ul>
@@ -41,7 +41,6 @@
 
 <style lang="less">
     .follow{
-        margin-top: 50px;
         .follow-left{
         }
         .follow-right{

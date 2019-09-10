@@ -1,5 +1,5 @@
 <template>
-    <common-container class="mine">
+    <common-container class="mine mt">
         <div class="mine-head">
             <div class="mine-head-img">
                 <img :src="portraitLink" alt="">
@@ -58,7 +58,6 @@
 
 <style lang="less">
     .mine{
-        margin-top: 50px;
         .mine-head{
             padding-top: 20px;
             padding-bottom: 20px;

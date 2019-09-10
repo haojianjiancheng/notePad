@@ -1,5 +1,5 @@
 <template>
-    <common-container class="notifications">
+    <common-container class="notifications mt">
         <div class="notifications-left">
             <common-column-button :list="button"></common-column-button>
         </div>
@@ -47,7 +47,6 @@
 
 <style lang="less">
 .notifications{
-    margin-top: 50px;
     .notifications-left,.notifications-right{
     }
     .notifications-left{

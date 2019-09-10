@@ -3,9 +3,7 @@
         @mousemove.capture="mousemoveHandle"
         @mouseout.capture="mouseoutHandle"
     >   
-        <div class="common-menu-button">
-            <slot></slot>
-        </div>
+        <slot></slot>
         <ul class="common-menu-list" v-show="open">
             <router-link :to="item.link" tag="li" v-for="(item,index) in list" :key="`list${index}`">
                 <i v-if="item.icon" :class="['iconfont',item.icon]"></i>
@@ -43,15 +41,6 @@
 <style lang="less">
     .common-menu{
         position: relative;
-        .common-menu-button{
-            width: 60px;
-            height: 50px;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            cursor: pointer;
-            user-select: none;
-        }
         .common-menu-list{
             position: absolute;
             top: 50px;

@@ -16,8 +16,15 @@
                     <li>收获喜欢 {{item.likesNumber}}</li>
                 </ul>
             </div>
-            <button class="mine-follow-right">
-                关注
+            <button class="btn mine-follow-right" @click="changeButton(index)">
+                <span class="btn" v-if="item.follow">
+                    <i class="iconfont icon-selected"></i>
+                    已关注
+                </span>
+                <span v-else>
+                    <i class="iconfont icon-icon_plus"></i>
+                    关注
+                </span>
             </button>
         </li>
     </ul>
@@ -34,7 +41,12 @@
         },
         data(){
             return {
-                list : []
+                list : [],
+            }
+        },
+        methods : {
+            changeButton(i){
+                this.list[i].follow = !this.list[i].follow
             }
         }
     }
@@ -50,12 +62,17 @@
             height: 60px;
             border-radius: 50%;
             overflow: hidden;
+            flex-shrink: 0;
         }
         .mine-follow-center{
+            flex-shrink: 0;
             li{
                 display: inline-block;
                 padding-right: 4px;
                 border-right: 1px solid gray;
+                &:last-child{
+                    border-right-color: transparent;
+                }
             }
         }
     }

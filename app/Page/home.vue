@@ -23,23 +23,26 @@
                     </span>
                 </router-link>
                 <common-menu :list="messageList">
-                    <span class="icon-show">
-                        <i class="iconfont icon-icon-test6"></i>
-                    </span>
-                    <span class="title-show">
-                        消息
-                    </span>
+                   <div class="rest-a">
+                        <span class="icon-show">
+                            <i class="iconfont icon-icon-test6"></i>
+                        </span>
+                        <span class="title-show">
+                            消息
+                        </span>
+                   </div>
                 </common-menu>
             </div>
             
             <div class="head-button-group-right d-flex justify-content-around">
                 <common-menu :list="portraitList">
-                    <div class="head-portrait">
-                        <img :src="portraitLink" alt="头像" class="head-portrait-img">
+                    <div class="head-button-group-portrait d-flex justify-content-around align-items-center">
+                        <div class="head-portrait">
+                            <img :src="portraitLink" alt="头像" class="head-portrait-img">
+                        </div>
+                        <i class="iconfont icon-icon-test3"></i>
                     </div>
-                    <i class="iconfont icon-icon-test3"></i>
                 </common-menu>
-
                 <button class="btn" @click="toWriter">写文章</button>
             </div>
         </div>
@@ -52,6 +55,9 @@
 
 <script>
     export default {
+        beforeCreate(){
+            console.log(document.cookie)
+        },
         data(){
             return {
                 portraitLink : this.$store.state.portrait,
@@ -130,15 +136,7 @@
 </script>
 
 <style lang="less">
-    @media screen and (min-width: 901px){
-        .title-show{
-            display: inline;
-        }
-        .icon-show{
-            display: none;
-        }
-    }
-    @media screen and (min-width: 680px) and (max-width: 900px) {
+    @media (min-width: 0) {
         .title-show{
             display: none;
         }
@@ -146,7 +144,19 @@
             display: inline;
         }
     }
-       
+    @media (min-width: 768px){
+        .title-show{
+            display: inline;
+        }
+        .icon-show{
+            display: none;
+        }
+    }
+    @media (min-width: 1000px){
+        .title-show,.icon-show{
+            display: inline;
+        }
+    }
     .home{
         overflow: hidden;
         .head,.foot,.content{
@@ -173,6 +183,10 @@
             }
             .head-button-group-right{
                 width: 200px;
+                .head-button-group-portrait{
+                    width: 65px;
+                    height: 50px;
+                }
             }
             .head-portrait{
                 width: 40px;

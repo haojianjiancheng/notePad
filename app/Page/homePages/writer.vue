@@ -1,5 +1,5 @@
 <template>
-    <div class="writer">
+    <div class="writer mt">
         <editor></editor>
     </div>
 </template>
@@ -15,6 +15,5 @@
 
 <style lang="less">
     .writer{
-        margin-top: 50px;
     }
 </style>

@@ -1,8 +1,17 @@
 const Router = require("koa-router");
 const router = new Router();
-const controller = require("../controller");
+const { regin,login,captcha,article } = require("../controller");
 
-router.post("/login",controller.login);
-router.get("/captcha",controller.captcha);
+router.post("/regin",regin);
+router.post("/login",login);
+
+router.post("/createArticle",article.createArticle);
+router.post("/deleteArticle",article.deleteArticle);
+router.post("/updateArticle",article.updateArticle);
+
+router.get("/readArticle",article.readArticle);
+router.get("/likeArticle",article.likeArticle);
+router.get("/dislikeArticle",article.dislikeArticle);
+router.get("/captcha",captcha);
 
 module.exports = router

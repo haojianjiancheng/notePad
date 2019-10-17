@@ -1,3 +1,5 @@
 {
-    "PORT" : "3000"
+    "PORT" : "3000",
+    "jwtSecret" : "jwtSecret-9980",
+    "salt" : "e8I9Ni7M0"
 }

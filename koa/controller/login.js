@@ -1,5 +1,5 @@
 const { baseInf } = require("../mongo");
-const { err } = require("../util");
+const { err,createJwt,createHMAC } = require("../util");
 
 module.exports = async ctx => {
     console.log("you have a new request for login");
@@ -7,6 +7,7 @@ module.exports = async ctx => {
     if(request.body){
         try {
             let { username = err(),password = err() } = request.body;
+            password = createHMAC(password);
             let result;
             console.log({email:username})
             if(typeof username === "number"){
@@ -15,11 +16,13 @@ module.exports = async ctx => {
                 result = await baseInf.findOne({$or : [{username},{email:username}],"password" : password});
             }
             if(result !== "null"){
+                let token = createJwt({
+                    username : result.username
+                })
                 response.body = {
                     code : 200,
                     message : "登录成功",
-                    username : result.username,
-                    password : result.password
+                    token
                 }
                 console.log("Successful login :",result);
                 return

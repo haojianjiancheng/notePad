@@ -14,4 +14,4 @@ router.get("/likeArticle",article.likeArticle);
 router.get("/dislikeArticle",article.dislikeArticle);
 router.get("/captcha",captcha);
 
-module.exports = router
+module.exports = router;

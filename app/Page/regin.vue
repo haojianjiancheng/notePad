@@ -64,8 +64,13 @@
         methods : {
             reginHandle(){
                 let a = this.$refs.reginForm.validateAll();
-                console.log(a);
-                
+                if(a){
+                    this.axios.post("regin",this.reginDate).then(data=>{
+                        console.log(data)
+                    }).catch(err=>{
+                        console.log(err)
+                    })
+                }
             }
         }
     }

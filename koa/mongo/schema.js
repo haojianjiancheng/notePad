@@ -4,7 +4,7 @@ const baseInf = new Schema({
     password : {type : String,required : true},
     avatar : {type : String,required : true},
     email : {type : String,required : true},
-    phone : {type : Number,required : true},
+    phoneNumber : {type : Number,required : true},
     articleId : {type : Schema.Types.ObjectId,ref : "article"}
 })
 
